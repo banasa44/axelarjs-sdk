@@ -58,12 +58,12 @@ function loadChains(config) {
     });
 }
 const s3UrlMap = {
-    "devnet-amplifier": "local",
+    "devnet-amplifier": "placeholder",
     testnet: "https://axelar-testnet.s3.us-east-2.amazonaws.com/configs/testnet-config-1.x.json",
     mainnet: "https://axelar-mainnet.s3.us-east-2.amazonaws.com/configs/mainnet-config-1.x.json",
 };
 const urlMap = {
-    "devnet-amplifier": "local",
+    "devnet-amplifier": "placeholder",
     testnet: "https://axelar-testnet.s3.us-east-2.amazonaws.com/testnet-chain-config.json",
     mainnet: "https://axelar-mainnet.s3.us-east-2.amazonaws.com/mainnet-chain-config.json",
 };
