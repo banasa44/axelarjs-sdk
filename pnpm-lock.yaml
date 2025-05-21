@@ -66,7 +66,7 @@ importers:
         specifier: ^8.13.0
         version: 8.13.0(bufferutil@4.0.5)(utf-8-validate@5.0.7)
       xrpl:
-        specifier: ^4.2.5
+        specifier: 4.2.5
         version: 4.2.5(bufferutil@4.0.5)(utf-8-validate@5.0.7)
     devDependencies:
       '@axelar-network/axelar-local-dev':
