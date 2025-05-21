@@ -1,0 +1,77 @@
+{
+    "xrpl": {
+        "id": "xrpl",
+        "chainSymbol": "XRPL",
+        "chainName": "XRPL",
+        "gasToken": "",
+        "nativeAsset": [],
+        "estimatedWaitTime": 1,
+        "fullySupported": true,
+        "assets": [],
+        "module": "axelarnet",
+        "confirmLevel": 1,
+        "chainIdentifier": {
+            "devnet": "xrpl-dev",
+            "testnet": "xrpl-dev",
+            "mainnet": "xrpl-dev"
+        },
+        "rpc": ["https://s.devnet.rippletest.net:51234"],
+        "lcd": [],
+        "grpc": [],
+        "addressPrefix": "",
+        "gasService": "",
+        "constAddressDeployer": "",
+        "channelIdToAxelar": null,
+        "depositService": ""
+    },
+    "xrpl-evm-devnet": {
+        "id": "xrpl-evm-devnet",
+        "chainSymbol": "XRPL-EVM Devnet",
+        "chainName": "XRPL-EVM Devnet",
+        "gasToken": "xrp",
+        "nativeAsset": [],
+        "estimatedWaitTime": 1,
+        "fullySupported": true,
+        "assets": [],
+        "module": "evm",
+        "confirmLevel": 1,
+        "chainIdentifier": {
+            "devnet": "xrpl-evm-devnet",
+            "testnet": "xrpl-evm-devnet",
+            "mainnet": "xrpl-evm-devnet"
+        },
+        "rpc": ["https://rpc.devnet.xrplevm.org"],
+        "lcd": [],
+        "grpc": [],
+        "addressPrefix": "",
+        "gasService": "0x8b4Cc5Fb89B68aE93aDfa67990419144e7395Dd1",
+        "constAddressDeployer": "0xA93e8d55253Df5717066B73Ad9cfbe4fF03D5BE4",
+        "channelIdToAxelar": null,
+        "depositService": ""
+    },
+    "avalanche-fuji": {
+        "id": "avalanche-fuji",
+        "chainSymbol": "Avalanche Fuji",
+        "chainName": "Avalanche Fuji",
+        "gasToken": "avax",
+        "nativeAsset": [],
+        "estimatedWaitTime": 1,
+        "fullySupported": true,
+        "assets": [],
+        "module": "evm",
+        "confirmLevel": 3,
+        "chainIdentifier": {
+            "devnet": "avalanche-fuji",
+            "testnet": "avalanche-fuji",
+            "mainnet": "avalanche-fuji"
+        },
+        "rpc": ["https://api.avax-test.network/ext/bc/C/rpc"],
+        "lcd": [],
+        "grpc": [],
+        "addressPrefix": "",
+        "gasService": "0x1179d44e69ba5252B7478a8602617d5EEeb2F377",
+        "constAddressDeployer": "0x98b2920d53612483f91f12ed7754e51b4a77919e",
+        "channelIdToAxelar": null,
+        "depositService": ""
+    }
+}

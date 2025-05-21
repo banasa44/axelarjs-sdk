@@ -34,6 +34,7 @@ const cross_fetch_1 = __importDefault(require("cross-fetch"));
 const assets_1 = require("../assets");
 const clone_deep_1 = __importDefault(require("clone-deep"));
 const devnet_amplifier_chain_json_1 = __importDefault(require("./devnet-amplifier-chain.json"));
+const devnet_amplifier_urlMap_json_1 = __importDefault(require("./devnet-amplifier-urlMap.json"));
 function loadChains(config) {
     return __awaiter(this, void 0, void 0, function* () {
         const allAssets = yield (0, assets_1.loadAssets)(config);
@@ -62,7 +63,7 @@ const s3UrlMap = {
     mainnet: "https://axelar-mainnet.s3.us-east-2.amazonaws.com/configs/mainnet-config-1.x.json",
 };
 const urlMap = {
-    "devnet-amplifier": "https://axelar-testnet.s3.us-east-2.amazonaws.com/devnet-chain-config.json",
+    "devnet-amplifier": "local",
     testnet: "https://axelar-testnet.s3.us-east-2.amazonaws.com/testnet-chain-config.json",
     mainnet: "https://axelar-mainnet.s3.us-east-2.amazonaws.com/mainnet-chain-config.json",
 };
@@ -93,7 +94,12 @@ function importChains(config) {
     return __awaiter(this, void 0, void 0, function* () {
         if (chainMap[config.environment])
             return Object.values(chainMap[config.environment]);
-        chainMap[config.environment] = yield execGet(urlMap[config.environment]);
+        if (config.environment === "devnet-amplifier") {
+            chainMap[config.environment] = devnet_amplifier_urlMap_json_1.default;
+        }
+        else {
+            chainMap[config.environment] = yield execGet(urlMap[config.environment]);
+        }
         return Object.values(chainMap[config.environment]);
     });
 }
