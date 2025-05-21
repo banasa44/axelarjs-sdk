@@ -8,7 +8,7 @@ import cloneDeep from "clone-deep";
 import { Environment } from "../libs";
 
 import devnetAmplifierChain from "./devnet-amplifier-chain.json";
-
+import devnetAmplifierUrl from "./devnet-amplifier-urlMap.json";
 
 export async function loadChains(config: LoadChainConfig) {
   const allAssets = await loadAssets(config);
@@ -49,7 +49,7 @@ const s3UrlMap: Record<Environment, string> = {
 };
 
 const urlMap: Record<Environment, string> = {
-  "devnet-amplifier": "https://axelar-testnet.s3.us-east-2.amazonaws.com/devnet-chain-config.json",
+  "devnet-amplifier": "local",
   testnet: "https://axelar-testnet.s3.us-east-2.amazonaws.com/testnet-chain-config.json",
   mainnet: "https://axelar-mainnet.s3.us-east-2.amazonaws.com/mainnet-chain-config.json",
 };
@@ -80,7 +80,11 @@ export async function importS3Config(environment: Environment): Promise<any> {
 export async function importChains(config: LoadChainConfig): Promise<ChainInfo[]> {
   if (chainMap[config.environment]) return Object.values(chainMap[config.environment]);
 
-  chainMap[config.environment] = await execGet(urlMap[config.environment]);
+  if (config.environment === "devnet-amplifier") {
+    chainMap[config.environment] = devnetAmplifierUrl;
+  } else {
+    chainMap[config.environment] = await execGet(urlMap[config.environment]);
+  }
 
   return Object.values(chainMap[config.environment]);
 }
