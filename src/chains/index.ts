@@ -7,6 +7,9 @@ import { ChainInfo, LoadChainConfig } from "./types";
 import cloneDeep from "clone-deep";
 import { Environment } from "../libs";
 
+import devnetAmplifierChain from "./devnet-amplifier-chain.json";
+
+
 export async function loadChains(config: LoadChainConfig) {
   const allAssets = await loadAssets(config);
   const _environment = config.environment as Environment;
@@ -40,7 +43,7 @@ export async function loadChains(config: LoadChainConfig) {
 }
 
 const s3UrlMap: Record<Environment, string> = {
-  "devnet-amplifier": "https://melted-fayth-nptytn-57e5d396.koyeb.app/chain/devnet-amplifier",
+  "devnet-amplifier": "local",
   testnet: "https://axelar-testnet.s3.us-east-2.amazonaws.com/configs/testnet-config-1.x.json",
   mainnet: "https://axelar-mainnet.s3.us-east-2.amazonaws.com/configs/mainnet-config-1.x.json",
 };
@@ -65,7 +68,11 @@ const s3Map: Record<Environment, any> = {
 export async function importS3Config(environment: Environment): Promise<any> {
   if (s3Map[environment]) return s3Map[environment];
 
-  s3Map[environment] = await execGet(s3UrlMap[environment]);
+  if (environment === "devnet-amplifier") {
+    s3Map[environment] = devnetAmplifierChain;
+  } else {
+    s3Map[environment] = await execGet(s3UrlMap[environment]);
+  }
 
   return s3Map[environment];
 }
