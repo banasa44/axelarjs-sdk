@@ -99,7 +99,7 @@
       "assets": {}
     },
     "xrpl-evm-devnet": {
-      "id": "xrpl-evm",
+      "id": "xrpl-evm-devnet",
       "displayName": "XRPL EVM",
       "chainType": "evm",
       "externalChainId": "1440002",
