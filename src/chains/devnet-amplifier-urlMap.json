@@ -1,6 +1,6 @@
 {
   "xrpl": {
-    "id": "xrpl",
+    "id": "xrpl-dev",
     "chainSymbol": "XRPL",
     "chainName": "XRPL",
     "gasToken": "",

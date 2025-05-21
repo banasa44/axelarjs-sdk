@@ -147,7 +147,7 @@
             "assets": {}
         },
         "xrpl-dev": {
-            "id": "xrpl",
+            "id": "xrpl-dev",
             "displayName": "XRPL",
             "chainType": "xrpl",
             "externalChainId": "None",
