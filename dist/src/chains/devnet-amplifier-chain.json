@@ -286,7 +286,7 @@
             "blockExplorers": [
                 {
                     "name": "Blockscout",
-                    "url": "https://explorer.xrplevm.org"
+                    "url": "https://explorer.devnet.xrplevm.org"
                 }
             ],
             "config": {
